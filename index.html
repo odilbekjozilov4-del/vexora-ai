@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEXORA AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>VEXORA AI</h1>
+
+        <button onclick="changeTheme()">☀️ / 🌙</button>
+
+        <select id="language" onchange="changeLanguage()">
+            <option value="uz">🇺🇿 O‘zbekcha</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="ru">🇷🇺 Русский</option>
+        </select>
+
+        <p id="description">
+            Your intelligent world starts here.
+        </p>
+
+        <!-- FOYDALANUVCHI PROFILI -->
+       
+<div class="user-profile">
+
+    <div class="profile-avatar">
+        <img
+            id="profileImage"
+            src="https://placehold.co/100x100/17243A/FFFFFF?text=V"
+            alt="Profil rasmi"
+        >
+    </div>
+
+    <div class="profile-info">
+        <strong id="userName">Foydalanuvchi</strong>
+        <small id="userEmail"></small>
+
+        <label for="avatarInput" class="avatar-upload">
+            📷 Rasmni almashtirish
+        </label>
+
+        <input
+            type="file"
+            id="avatarInput"
+            accept="image/*"
+            hidden
+        >
+    </div>
+
+    <button id="logoutButton" type="button">
+        Chiqish
+    </button>
+
+</div>
+
+    </header>
+
+    <main>
+
+        <div class="history-panel">
+            <h3>🕘 Suhbatlar tarixi</h3>
+
+            <input
+                type="text"
+                id="historySearch"
+                placeholder="🔍 Suhbatlardan qidirish..."
+            >
+
+            <div id="chatHistory">
+                <p class="empty-history">
+                    Hozircha suhbatlar yo‘q
+                </p>
+            </div>
+        </div>
+
+        <button onclick="newChat()">
+            ＋ Yangi suhbat
+        </button>
+
+        <div id="chat">
+            <div class="ai-message">
+                Salom! Men VEXORA AI.
+                Sizga qanday yordam bera olaman?
+            </div>
+        </div>
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="userInput"
+        placeholder="Ask VEXORA anything..."
+    >
+
+    <button
+        type="button"
+        id="micButton"
+        onclick="startVoiceInput()"
+        title="Ovozli xabar"
+    >
+        🎙️
+    </button>
+
+    <button onclick="sendMessage()">➤</button>
+
+</div>
+
+
+        <p class="subtitle">
+            Ask anything. Learn everything.
+        </p>
+
+    </main>
+
+    <!-- KIRISH VA RO‘YXATDAN O‘TISH -->
+    <div id="authScreen" class="auth-screen">
+
+        <div class="auth-box">
+            <h1>VEXORA<span> AI</span></h1>
+            <p>Intelligent world starts here.</p>
+
+            <div class="auth-tabs">
+                <button id="loginTab" class="auth-tab active" type="button">
+                    Kirish
+                </button>
+
+                <button id="registerTab" class="auth-tab" type="button">
+                    Ro‘yxatdan o‘tish
+                </button>
+            </div>
+
+            <form id="loginForm">
+                <input type="email" id="loginEmail"
+                    placeholder="Elektron pochta" required>
+
+                <input type="password" id="loginPassword"
+                    placeholder="Parol" required>
+
+                <button type="submit">Tizimga kirish</button>
+            </form>
+
+            <form id="registerForm" style="display: none;">
+                <input type="text" id="registerName"
+                    placeholder="Ismingiz" required>
+
+                <input type="email" id="registerEmail"
+                    placeholder="Elektron pochta" required>
+
+                <input type="password" id="registerPassword"
+                    placeholder="Parol yarating"
+                    minlength="6" required>
+
+                <button type="submit">Akkaunt yaratish</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,532 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080D1A;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header {
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #4D9FFF;
+    letter-spacing: 3px;
+}
+
+header p {
+    color: #AAB5C8;
+    margin-top: 15px;
+}
+
+main {
+    max-width: 650px;
+    margin: 100px auto;
+}
+
+.search-box {
+    display: flex;
+    background: #121C30;
+    border: 1px solid #2866A8;
+    border-radius: 18px;
+    padding: 10px;
+}
+
+input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+}
+
+button {
+    background: #1685FF;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.subtitle {
+    color: #7D8CA5;
+    margin-top: 25px;
+}
+#chat {
+    width: 100%;
+    min-height: 120px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #101B2E;
+    border: 1px solid #243D5D;
+    border-radius: 18px;
+    text-align: left;
+}
+
+.ai-message {
+    display: inline-block;
+    background: #172D49;
+    color: #DCEBFF;
+    padding: 15px;
+    border-radius: 12px;
+    line-height: 1.6;
+    max-width: 90%;
+}
+.user-message {
+    display: block;
+    width: fit-content;
+    max-width: 85%;
+    margin: 15px 0 15px auto;
+    padding: 14px 18px;
+    background: #087BEE;
+    color: white;
+    border-radius: 15px 15px 3px 15px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+body.light-mode {
+    background: #F4F7FC;
+    color: #172033;
+}
+
+body.light-mode #chat {
+    background: #FFFFFF;
+    border-color: #D5DFEE;
+}
+
+body.light-mode .ai-message {
+    background: #E2ECFA;
+    color: #172033;
+}
+
+body.light-mode .search-box {
+    background: #FFFFFF;
+    border-color: #8CB9ED;
+}
+
+body.light-mode input {
+    color: #172033;
+}
+
+body.light-mode .subtitle,
+body.light-mode header p {
+    color: #52627A;
+}
+/* VEXORA AI - Suhbatlar tarixi */
+
+.history-panel {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 18px;
+    background: #111B2E;
+    border: 1px solid #263B5B;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.history-panel h3 {
+    color: #5DA9FF;
+    font-size: 18px;
+    margin: 0 0 15px;
+}
+
+.empty-history {
+    color: #8B9BB4;
+    font-size: 14px;
+}
+
+body.light-mode .history-panel {
+    background: #FFFFFF;
+    border-color: #D5DFEE;
+}
+
+body.light-mode .history-panel h3 {
+    color: #2468B5;
+}
+
+body.light-mode .empty-history {
+    color: #65758B;
+}
+
+.history-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 9px;
+}
+
+.history-item {
+    flex: 1;
+    text-align: left;
+    padding: 11px;
+    border: 1px solid #263B5B;
+    border-radius: 9px;
+    background: #17243A;
+    color: #EAF2FF;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-item:hover,
+.history-item.active {
+    background: #23436C;
+    border-color: #5DA9FF;
+}
+
+.delete-chat {
+    padding: 10px;
+    border: 1px solid #51313A;
+    border-radius: 9px;
+    background: #2A1B25;
+    cursor: pointer;
+}
+
+.delete-chat:hover {
+    background: #63303A;
+}
+
+body.light-mode .history-item {
+    background: #F0F5FC;
+    color: #172033;
+    border-color: #D5DFEE;
+}
+
+body.light-mode .history-item.active,
+body.light-mode .history-item:hover {
+    background: #DCEBFC;
+    border-color: #8CB9ED;
+}
+
+body.light-mode .delete-chat {
+    background: #FFF0F0;
+    border-color: #F0CCCC;
+}
+#historySearch {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #263B5B;
+    border-radius: 9px;
+    background: #17243A;
+    color: white;
+    outline: none;
+}
+
+#historySearch:focus {
+    border-color: #5DA9FF;
+}
+
+body.light-mode #historySearch {
+    background: #F0F5FC;
+    color: #172033;
+    border-color: #D5DFEE;
+}
+#historySearch {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #263B5B;
+    border-radius: 9px;
+    background: #17243A;
+    color: white;
+    outline: none;
+}
+
+#historySearch:focus {
+    border-color: #5DA9FF;
+}
+
+body.light-mode #historySearch {
+    background: #F0F5FC;
+    color: #172033;
+    border-color: #D5DFEE;
+}
+
+/* VEXORA AUTHENTICATION DESIGN */
+
+.auth-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #080F1E;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border: 1px solid #263B5B;
+    border-radius: 20px;
+    background: #111B2E;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.auth-box h1 {
+    color: #FFFFFF;
+    font-size: 34px;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.auth-box h1 span {
+    color: #5DA9FF;
+}
+
+.auth-box p {
+    color: #8B9BB4;
+    margin-bottom: 28px;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #263B5B;
+    border-radius: 9px;
+    background: transparent;
+    color: #AAB9CE;
+    cursor: pointer;
+}
+
+.auth-tab.active {
+    background: #24558F;
+    color: white;
+    border-color: #5DA9FF;
+}
+
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.auth-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #263B5B;
+    border-radius: 9px;
+    background: #17243A;
+    color: white;
+    outline: none;
+}
+
+.auth-box input:focus {
+    border-color: #5DA9FF;
+}
+
+.auth-box form button {
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: #2878D0;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-box form button:hover {
+    background: #398FEA;
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 25px 18px;
+    }
+}
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+    padding: 12px 16px;
+    border: 1px solid #263B5B;
+    border-radius: 12px;
+    background: #17243A;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+}
+
+.profile-info small {
+    color: #8B9BB4;
+    overflow-wrap: anywhere;
+}
+
+#logoutButton {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #D94B4B;
+    color: white;
+    cursor: pointer;
+}
+
+.profile-avatar img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4F8CFF;
+}
+
+.avatar-upload {
+    display: inline-block;
+    color: #69A5FF;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.avatar-upload:hover {
+    color: white;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* VEXORA AI — YOZMOQDA ANIMATSIYASI */
+
+.typing-message {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    padding: 14px 18px;
+    margin: 12px 0;
+    background: #17243A;
+    border: 1px solid #263B5B;
+    border-radius: 15px;
+}
+
+.typing-message span {
+    width: 8px;
+    height: 8px;
+    background: #55A5FF;
+    border-radius: 50%;
+    animation: vexoraTyping 1.2s infinite ease-in-out;
+}
+
+.typing-message span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-message span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes vexoraTyping {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    30% {
+        transform: translateY(-7px);
+        opacity: 1;
+    }
+}
+
+/* VEXORA AI TYPING ANIMATION */
+
+#chat .typing-message {
+    display: flex !important;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    min-width: 65px;
+    padding: 15px 18px;
+    margin: 12px 0;
+    background: #17243A;
+    border-radius: 15px;
+    visibility: visible;
+    opacity: 1;
+}
+
+#chat .typing-message span {
+    display: block;
+    width: 9px;
+    height: 9px;
+    background: #55A5FF;
+    border-radius: 50%;
+    animation: vexoraDots 0.9s infinite ease-in-out;
+}
+
+#chat .typing-message span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+#chat .typing-message span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes vexoraDots {
+    0%, 80%, 100% {
+        transform: translateY(0);
+        opacity: 0.35;
+    }
+
+    40% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
+.speak-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 9px;
+    border: none;
+    border-radius: 8px;
+    background: #263B5B;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.speak-button:hover {
+    background: #3478D4;
+    transform: scale(1.08);
+}
